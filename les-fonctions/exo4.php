@@ -44,11 +44,26 @@ function afficherEleve($eleve)
     return "<div>$affichageEleve $affichageNotes $affichageMoyenne</div>";
 }
 
-echo afficherEleve([
-    'nom' => 'Dupont',
-    'prenom' => 'Jean',
-    'notes' => [13, 19, 13, 8, 15]
-]);
+function afficherClasse($classe)
+{
+    $rang = $classe['rang'];
+    $section = $classe['section'];
+    $profPrincipal = $classe['profPrincipal'];
+    $nombreEleves = count($classe['eleves']);
+
+    $titre = "<h1>Classe $rang $section</h1>";
+    $profPrincipalParagraph = "<p>Professeur principal : $profPrincipal</p>";
+    $nombreElevesParagraph = "<p>Nombre d'élèves : $nombreEleves</p>";
+    $sousTitre = "<h2>Fiche des élèves :</h2>";
+
+    $elevesAffichage = '';
+
+    foreach ($classe['eleves'] as $eleve) {
+        $elevesAffichage .= afficherEleve($eleve);
+    }
+
+    return "<div>$titre $profPrincipalParagraph $nombreElevesParagraph $sousTitre $elevesAffichage</div>";
+}
 
 $classe = [
     'rang' => '2nd',
@@ -77,3 +92,6 @@ $classe = [
         ],
     ]
 ];
+
+
+echo afficherClasse($classe);
