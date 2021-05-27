@@ -25,7 +25,7 @@ function afficherEleves($eleves)
     foreach ($eleves as $i => $eleve) {
         $numero = $i + 1;
         // $html = $html . (ect ....); est la méme chose que
-        $html .= "<li>Élève n° $numero : {$eleve['nom']} {$eleve['prenom']}";
+        $html .= "<li>Élève n° $numero : {$eleve['nom']} {$eleve['prenom']}</li>";
     }
 
     return "<ul>$html</ul>";
