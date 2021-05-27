@@ -31,9 +31,24 @@ function afficherNotes($notes)
     return "<ul>$html</ul>";
 }
 
-echo afficherNotes([13, 12, 9, 14]);
-echo afficherMoyenne([13, 12, 9, 14]);
+function afficherEleve($eleve)
+{
+    $nom = $eleve['nom'];
+    $prenom = $eleve['prenom'];
+    $notes = $eleve['notes'];
 
+    $affichageEleve = "<p>Élève $nom $prenom</p>";
+    $affichageNotes = afficherNotes($notes);
+    $affichageMoyenne = afficherMoyenne($notes);
+
+    return "<div>$affichageEleve $affichageNotes $affichageMoyenne</div>";
+}
+
+echo afficherEleve([
+    'nom' => 'Dupont',
+    'prenom' => 'Jean',
+    'notes' => [13, 19, 13, 8, 15]
+]);
 
 $classe = [
     'rang' => '2nd',
