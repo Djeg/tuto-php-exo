@@ -1,11 +1,17 @@
 <?php
 
 require('./includes/functions.php');
+$config = require('./includes/config.php');
 
 // Nous pouvons établir une connexion à la base de données
 // en utilisant la fonction mysqli_connect()
 // Bien mettre : mysqli_connect('localhost', 'root', '', 'blog')
-$connexion = mysqli_connect('mysql', 'root', 'root', 'blog');
+$connexion = mysqli_connect(
+    $config['MYSQL_HOST'],
+    $config['MYSQL_USER'],
+    $config['MYSQL_PASSWORD'],
+    $config['MYSQL_DATABASE'],
+);
 
 // Ici nous créons une requête SQL. Cette requête nous
 // de communiquer ce que nous voulons faire sur notre
