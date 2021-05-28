@@ -1,3 +1,22 @@
+<?php
+
+require('./includes/functions.php');
+
+// Nous pouvons établir une connexion à la base de données
+// en utilisant la fonction mysqli_connect()
+// Bien mettre : mysqli_connect('localhost', 'root', '', 'blog')
+$connexion = mysqli_connect('mysql', 'root', 'root', 'blog');
+
+// Ici nous créons une requête SQL. Cette requête nous
+// de communiquer ce que nous voulons faire sur notre
+// base de données.
+$request = mysqli_query($connexion, "SELECT * FROM `articles`");
+
+// Nous récupérons tout les articles de la base de données.
+// Pour cela il suffit d'éxécuter notre requète et de récupérer
+// tout les articles.
+$articles = mysqli_fetch_all($request, MYSQLI_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,63 +41,11 @@
         <div class="row">
             <!-- Blog entries-->
             <div class="col-lg-8">
-                <!-- Featured blog post-->
-                <div class="card mb-4">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                    <div class="card-body">
-                        <div class="small text-muted">January 1, 2021</div>
-                        <h2 class="card-title">Featured Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a class="btn btn-primary" href="#!">Read more →</a>
-                    </div>
-                </div>
-                <!-- Nested row for non-featured blog posts-->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2021</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2021</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2021</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2021</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                foreach ($articles as $article) {
+                    echo afficherCarte($article);
+                }
+                ?>
                 <!-- Pagination-->
                 <nav aria-label="Pagination">
                     <hr class="my-0" />
