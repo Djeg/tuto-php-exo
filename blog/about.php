@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Mon Blog</title>
+    <title>Mon Blog - À propos</title>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
@@ -19,9 +19,9 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="./index.php">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./about.php">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./contact.php">Me contacter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Me contacter</a></li>
                 </ul>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <header class="py-5 bg-light border-bottom mb-4">
         <div class="container">
             <div class="text-center my-5">
-                <h1 class="fw-bolder">Bienvenue sur mon blog</h1>
+                <h1 class="fw-bolder">À propos de ce blog</h1>
                 <p class="lead mb-0">Ceci est un blog en PHP pour le fun</p>
             </div>
         </div>
